@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar',
@@ -8,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AgregarComponent {
 
+  public myForm: FormGroup = this.fb.group({
+    name: ['', Validators.required]
+  })
+
+  constructor( private fb: FormBuilder) { }
+
+  getError( label: string ): boolean {
+    return this.myForm.get(label)?.invalid || false;
+  }
 }
