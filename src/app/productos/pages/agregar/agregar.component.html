@@ -16,8 +16,10 @@
     </div>
 
     <div class="col-auto">
-      <span class="form-text"
-            *ngIf="getError('name')"
+      <span *ngIf="getError('name')"
+            error-msg
+            message="Debe de ingresar este campo"
+            [color]="color"
       >
         Este campo es requerido
       </span>
@@ -29,6 +31,12 @@
     <div class="col">
       <button class="btn btn-primary">
         Guardar
+      </button>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-primary" (click)="cambiarColor()">
+        Cambiar color
       </button>
     </div>
   </div>

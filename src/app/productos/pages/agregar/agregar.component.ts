@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AgregarComponent {
 
+  public color: string = 'red';
+
   public myForm: FormGroup = this.fb.group({
     name: ['', Validators.required]
   })
@@ -17,5 +19,9 @@ export class AgregarComponent {
 
   getError( label: string ): boolean {
     return this.myForm.get(label)?.invalid || false;
+  }
+
+  cambiarColor() {
+    this.color = '#xxxxxx'.replace(/x/g, y=>(Math.random()*16|0).toString(16));
   }
 }
